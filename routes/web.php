@@ -13,6 +13,8 @@
 
 Route::get('/', 'PageController@index');
 Route::get('/shop', 'PageController@shop');
+Route::get('/product-details','PageController@productDetails');
+Route::get('/cart','PageController@cart');
 
 Auth::routes();
 

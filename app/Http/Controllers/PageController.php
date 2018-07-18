@@ -15,5 +15,13 @@ class PageController extends Controller
         return view('shop');
     }
 
+    function productDetails(){
+        return view('product-details');
+    }
+
+    function cart(){
+        return view('cart');
+    }
+
 
 }

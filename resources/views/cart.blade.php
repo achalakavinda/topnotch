@@ -72,7 +72,7 @@
                     <li><a href="index.html">Home</a></li>
                     <li><a href="shop.html">Shop</a></li>
                     <li><a href="product-details.blade.php">Product</a></li>
-                    <li class="active"><a href="cart.blade.html">Cart</a></li>
+                    <li class="active"><a href="cart.blade.php">Cart</a></li>
                     <li><a href="checkout.html">Checkout</a></li>
                 </ul>
             </nav>
@@ -83,7 +83,7 @@
             </div>
             <!-- Cart Menu -->
             <div class="cart-fav-search mb-100">
-                <a href="cart.blade.html" class="cart-nav"><img src="img/core-img/cart.png" alt=""> Cart <span>(0)</span></a>
+                <a href="cart.blade.php" class="cart-nav"><img src="img/core-img/cart.png" alt=""> Cart <span>(0)</span></a>
                 <a href="#" class="fav-nav"><img src="img/core-img/favorites.png" alt=""> Favourite</a>
                 <a href="#" class="search-nav"><img src="img/core-img/search.png" alt=""> Search</a>
             </div>
@@ -192,7 +192,7 @@
                                 <li><span>total:</span> <span>$140.00</span></li>
                             </ul>
                             <div class="cart-btn mt-100">
-                                <a href="cart.blade.html" class="btn amado-btn w-100">Checkout</a>
+                                <a href="cart.blade.php" class="btn amado-btn w-100">Checkout</a>
                             </div>
                         </div>
                     </div>
@@ -263,7 +263,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                                             <a class="nav-link" href="product-details.blade.php">Product</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="cart.blade.html">Cart</a>
+                                            <a class="nav-link" href="cart.blade.php">Cart</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="checkout.html">Checkout</a>
