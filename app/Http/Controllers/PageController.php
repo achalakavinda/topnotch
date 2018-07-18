@@ -11,7 +11,11 @@ class PageController extends Controller
         return view('index');
     }
 
-    function products(){
+    function product(){
+       return $this->products(-999);
+    }
+
+    function products($id){
         return view('products');
     }
 
@@ -21,6 +25,10 @@ class PageController extends Controller
 
     function cart(){
         return view('cart');
+    }
+
+    function checkout(){
+        return view('checkout');
     }
 
 

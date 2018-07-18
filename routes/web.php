@@ -12,10 +12,11 @@
 */
 
 Route::get('/', 'PageController@index');
+Route::get('/shop', 'PageController@product');
 Route::get('/shop/{id}', 'PageController@products');
-
 Route::get('/product-details','PageController@productDetails');
 Route::get('/cart','PageController@cart');
+Route::get('/checkout','PageController@checkout');
 
 Auth::routes();
 
