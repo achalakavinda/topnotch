@@ -11,8 +11,8 @@ class PageController extends Controller
         return view('index');
     }
 
-    function shop(){
-        return view('shop');
+    function products(){
+        return view('products');
     }
 
     function productDetails(){

@@ -20,6 +20,9 @@ class CreateCategoriesTable extends Migration
             $table->string('desc')->nullable();
             $table->string('icon')->nullable();
             $table->string('url')->nullable();
+            $table->string('path')->nullable();
+            $table->boolean('use_url')->default(true);
+            $table->float('min_price')->nullable();
             $table->integer('level')->default(0);
             $table->integer('parent')->default(0);
             $table->boolean('disabled')->default(0);
