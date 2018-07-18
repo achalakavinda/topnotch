@@ -12,7 +12,7 @@
 */
 
 Route::get('/', 'PageController@index');
-Route::get('/shop/{id}/products', 'PageController@products');
+Route::get('/shop/{id}', 'PageController@products');
 
 Route::get('/product-details','PageController@productDetails');
 Route::get('/cart','PageController@cart');

@@ -3,7 +3,7 @@
 <!-- Single Catagory -->
 @foreach($Categories as $category)
     <div class="single-products-catagory clearfix">
-        <a href="{{ url('shop') }}/{{ $category->id  }}/products">
+        <a href="{{ url('shop') }}/{{ $category->id  }}">
             @if(!$category->use_url)
                 <img src="{{ url("$category->path") }}" alt="{{ $category->name  }}">
             @else
