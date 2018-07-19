@@ -15,16 +15,16 @@ class CategoryTableSeeder extends Seeder
         Category::insert([
             [
                 'id'=>1,
-                'code' =>str_random(2),
-                'name' => str_random(5),
+                'code' =>"#0001",
+                'name' => 'Lip Stick',
                 'url'=> "https://www.peta.org/wp-content/uploads/2015/03/nyx-concealer.jpg",
                 'min_price'=> "560",
             ],
             [
                 'id'=>2,
-                'code' =>str_random(2),
-                'name' => str_random(5),
-                'url'=> "https://do6gbw1x8hs3.cloudfront.net/spree/product_images/62364/large/baby_doll.jpg",
+                'code' =>'#0002',
+                'name' => 'Cream',
+                'url'=> "https://images2.jiji.ng/3436935_jergens-7662-361262-1-product_292x365.jpg",
                 'min_price'=> "560",
             ],
             [

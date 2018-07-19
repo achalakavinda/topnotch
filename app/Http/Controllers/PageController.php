@@ -8,7 +8,8 @@ class PageController extends Controller
 {
 
     function index(){
-        return view('index');
+        return view('site.index');
+
     }
 
     function product(){
@@ -16,20 +17,19 @@ class PageController extends Controller
     }
 
     function products($id){
-        return view('products');
+        return view('site.products');
     }
 
     function productDetails(){
-        return view('product-details');
+        return view('site.product-details');
     }
 
     function cart(){
-        return view('cart');
+        return view('site.cart');
     }
 
     function checkout(){
-        return view('checkout');
+        return view('site.checkout');
     }
-
 
 }

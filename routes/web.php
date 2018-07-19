@@ -18,6 +18,10 @@ Route::get('/product-details','PageController@productDetails');
 Route::get('/cart','PageController@cart');
 Route::get('/checkout','PageController@checkout');
 
+Route::get('/admin',function(){
+    return view('admin.index');
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
