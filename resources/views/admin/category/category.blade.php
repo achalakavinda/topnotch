@@ -5,21 +5,21 @@
 
     <div class="my-3 my-md-5">
         <div class="container">
-
-            <div class="page-header">
-                <h1 class="page-title">
-                    Category
-                </h1>
-            </div>
-
-
             <div class="row row-cards row-deck">
-
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">Category</h3>
                         </div>
+
+                        <div style="margin-top: 10px; margin-bottom: 10px" class="col-sm-1">
+                            <button id="createBtn" type="button" class="btn btn-sm btn-outline-danger">Add <i class="fe fe-plus mr-2"></i></button>
+                        </div>
+
+                        {!! Form::open(['method' => 'POST', 'action'=>'System\CategoryController@store','id'=>'categoryform']) !!}
+                              @include('admin.category._partials.form')
+                        {!! Form::close() !!}
+
                         <div class="table-responsive">
                             <table class="table card-table table-vcenter text-nowrap">
                                 <thead>
@@ -49,7 +49,7 @@
                                            {{ $category->description }}
                                         </td>
                                         <td>
-                                          <img src="{{ $category->url }}" style="height: 50px;width: 20px">
+                                          <img src="{{ $category->url }}" style="height: 100px;width: 50px">
                                         </td>
                                         <td>
                                             {{ $category->min_price }}
@@ -82,8 +82,26 @@
 
                                 @endforeach
 
+
+
                                 </tbody>
                             </table>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <style>
+                            .pagination-holder{
+                                width: 100%;
+                                padding-top: 20px;
+                                padding-bottom: 5px;
+                                padding-left: 10px;
+                                text-align: center;
+                            }
+                            .pagination-holder>.pagination{
+                            }
+                        </style>
+                        <div class="pagination-holder">
+                            {{ $Categories->links() }}
                         </div>
                     </div>
                 </div>
@@ -94,4 +112,16 @@
     </div>
 
 
+@endsection
+
+@section('js')
+    <script>
+        $( document ).ready(function() {
+            $('#categoryform').hide();
+            $('#createBtn').click(function () {
+                $('#categoryform').toggle("slow",function () {});
+            });
+
+        });
+    </script>
 @endsection

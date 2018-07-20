@@ -15,7 +15,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-      $Categories = Category::all()->where('disabled',false);
+      $Categories = Category::paginate(10);
 
        return view('admin.category.category',compact(['Categories']));
     }
@@ -38,7 +38,30 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+           'name'=>'required'
+        ]);
+
+        $disabled = false;
+        if(empty($request->disabled)){}else{
+            $disabled = true;
+        }
+
+
+        $push = [
+            'code'=>$request->code,
+            'name'=>$request->name,
+            'desc'=>$request->desc,
+            'url'=>$request->url,
+            'use_url'=>true,
+            'min_price'=>500,
+            'disabled'=>$disabled
+        ];
+
+        Category::create($push);
+
+       return redirect()->back();
+
     }
 
     /**
@@ -49,7 +72,7 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**

@@ -62,5 +62,7 @@
                 <!-- /Footer area -->
 
         </div>
+
+    @yield('js')
     </body>
 </html>

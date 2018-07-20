@@ -16,14 +16,12 @@
                     <div class="col-6 col-md-3">
                         <ul class="list-unstyled mb-0">
                             <li><a href="{{ url('admin/category') }}">Category</a></li>
-                            <li><a href="{{ url('admin/category/create') }}">New Category</a></li>
                         </ul>
                     </div>
 
                     <div class="col-6 col-md-3">
                         <ul class="list-unstyled mb-0">
                             <li><a href="{{ url('admin/product') }}">Product</a></li>
-                            <li><a href="{{ url('admin/product/create') }}">New Product</a></li>
                         </ul>
                     </div>
 

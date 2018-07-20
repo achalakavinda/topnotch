@@ -14,13 +14,11 @@
                         <a href="{{ url("/") }}" class="nav-link active"><i class="fe fe-home"></i> Site</a>
                     </li>
 
-                    <li class="nav-item dropdown">
-                        <a href="javascript:void(0)" class="nav-link" data-toggle="dropdown"><i class="fe fe-file"></i> Category</a>
-                        <div class="dropdown-menu dropdown-menu-arrow">
-                            <a href="{{ url('/admin/category') }}" class="dropdown-item ">Categories</a>
-                            <a href="{{ url('/admin/category/create') }}" class="dropdown-item ">Create</a>
-                        </div>
+                    <li class="nav-item">
+                        <a href="{{ url('/admin/category') }}" class="nav-link">Category</a>
                     </li>
+
+
 
                     <li class="nav-item dropdown">
                         <a href="javascript:void(0)" class="nav-link" data-toggle="dropdown"><i class="fe fe-file"></i> Product</a>
