@@ -18,9 +18,12 @@ Route::get('/product-details','PageController@productDetails');
 Route::get('/cart','PageController@cart');
 Route::get('/checkout','PageController@checkout');
 
-Route::get('/admin',function(){
-    return view('admin.index');
-});
+Route::get('/admin','System\AdminController@index');
+Route::resource('/admin/category','System\CategoryController');
+Route::resource('/admin/order','System\OrderController');
+Route::resource('/admin/product','System\ProductController');
+Route::resource('/admin/pre-order','System\PreOrderController');
+
 
 Auth::routes();
 
