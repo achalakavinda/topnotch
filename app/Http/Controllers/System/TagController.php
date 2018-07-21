@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\System;
 
+use App\Models\Tag;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -14,7 +15,8 @@ class TagController extends Controller
      */
     public function index()
     {
-        //
+        $Tags = Tag::get()->where('disable',0);
+        return View('admin.tag.tag',compact(['Tags']));
     }
 
     /**
@@ -24,7 +26,7 @@ class TagController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.404');
     }
 
     /**
@@ -35,7 +37,18 @@ class TagController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'name'=>'required'
+        ]);
+
+        Tag::create([
+            'code'=>$request->code,
+            'name'=>$request->name,
+            'desc'=>$request->desc
+        ]);
+
+        return redirect()->back();
+
     }
 
     /**
