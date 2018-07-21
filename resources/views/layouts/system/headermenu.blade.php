@@ -11,29 +11,31 @@
             <div class="col-lg order-lg-first">
                 <ul class="nav nav-tabs border-0 flex-column flex-lg-row">
                     <li class="nav-item">
-                        <a href="{{ url("/") }}" class="nav-link active"><i class="fe fe-home"></i> Site</a>
+                        <a href="{{ url("/") }}" class="nav-link"><i class="fe fe-home"></i> Site</a>
                     </li>
 
                     <li class="nav-item">
-                        <a href="{{ url('/admin/category') }}" class="nav-link">Category</a>
-                    </li>
-
-
-
-                    <li class="nav-item dropdown">
-                        <a href="javascript:void(0)" class="nav-link" data-toggle="dropdown"><i class="fe fe-file"></i> Product</a>
-                        <div class="dropdown-menu dropdown-menu-arrow">
-                            <a href="{{ url('/admin/product') }}" class="dropdown-item ">Products</a>
-                            <a href="{{ url('/admin/product/create') }}" class="dropdown-item ">Create</a>
-                        </div>
+                        <a href="{{ url('/admin/category') }}" class="nav-link"><i class="fe fe-box"></i> Category</a>
                     </li>
 
                     <li class="nav-item">
-                        <a href="{{ url("/admin/order") }}" class="nav-link"><i class="fe fe-home"></i> Order</a>
+                        <a href="{{ url('/admin/brand') }}" class="nav-link"><i class="fe fe-watch"></i> Brand</a>
                     </li>
 
                     <li class="nav-item">
-                        <a href="{{ url("/admin/pre-order") }}" class="nav-link"><i class="fe fe-home"></i> Pre-Oder</a>
+                        <a href="{{ url('/admin/tag') }}" class="nav-link"><i class="fe fe-tag"></i> Tag</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="{{ url('/admin/product') }}" class="nav-link"><i class="fe fe-shopping-bag"></i> Product</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="{{ url("/admin/order") }}" class="nav-link"><i class="fe fe-truck"></i> Order</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="{{ url("/admin/pre-order") }}" class="nav-link"><i class="fe fe-send"></i> Pre-Oder</a>
                     </li>
 
 

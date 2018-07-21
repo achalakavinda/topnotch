@@ -18,6 +18,7 @@ class CreateItemsTable extends Migration
             $table->unsignedInteger('category_id');
             $table->unsignedInteger('category_tag_combination_id')->nullable();
             $table->unsignedInteger('supplier_id')->nullable();
+            $table->unsignedInteger('brand_id')->nullable();
             $table->string('name');
             $table->float('price');
             $table->string('url')->nullable();

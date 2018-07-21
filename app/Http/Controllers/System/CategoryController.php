@@ -38,27 +38,46 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
+
         $this->validate($request,[
-           'name'=>'required'
+            'name'=>'required'
         ]);
 
-        $disabled = false;
-        if(empty($request->disabled)){}else{
-            $disabled = true;
+        if(empty($request->disable)){
+            $request['disable'] = 1;
+        }else{
+            $request['disable'] = 0;
         }
 
+        if($request['image-selector']==0){
+            if(!$this->checkUrlImage($request->url)){
+                return redirect()->back();
+            }
+            $push = [
+                'code'=>$request->code,
+                'name'=>$request->name,
+                'desc'=>$request->desc,
+                'url'=>$request->url,
+                'use_url'=>true,
+                'min_price'=>500,
+                'disabled'=>$request->disable
+            ];
+        }else {
+            $push = [
+                'code'=>$request->code,
+                'name'=>$request->name,
+                'desc'=>$request->desc,
+                'url'=>null,
+                'use_url'=>false,
+                'path'=>'img/product-img/pro-big-1.jpg',
+                'min_price'=>500,
+                'disabled'=> $request->disable
+            ];
+        }
 
-        $push = [
-            'code'=>$request->code,
-            'name'=>$request->name,
-            'desc'=>$request->desc,
-            'url'=>$request->url,
-            'use_url'=>true,
-            'min_price'=>500,
-            'disabled'=>$disabled
-        ];
+//        dd($push);
 
-        Category::create($push);
+       Category::create($push);
 
        return redirect()->back();
 
@@ -107,5 +126,13 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    function checkUrlImage($external_link){
+        if (@getimagesize($external_link)) {
+            return true;
+            } else {
+              return false;
+            }
     }
 }

@@ -1,4 +1,4 @@
-<?php $Categories = \App\Models\Category::all(); ?>
+<?php $Categories = \App\Models\Category::get()->where('disabled',0); ?>
 
 <!-- Single Catagory -->
 @foreach($Categories as $category)

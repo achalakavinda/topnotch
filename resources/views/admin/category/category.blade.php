@@ -14,7 +14,7 @@
 
                         <div style="margin-top: 10px; margin-bottom: 10px" class="col-sm-1">
                             <button id="createBtn" type="button" class="btn btn-sm btn-outline-danger"><i class="fe fe-plus mr-2"></i>Add</button>
-                            <button id="minuseBtn" type="button" class="btn btn-sm btn-outline-danger"><i class="fe fe-minus mr-2"></i>Close</button>
+                            <button id="minuseBtn" type="button" class="btn btn-sm btn-danger"><i class="fe fe-minus mr-2"></i>Close</button>
                         </div>
 
                         {!! Form::open(['method' => 'POST', 'action'=>'System\CategoryController@store','id'=>'crudForm']) !!}
@@ -50,7 +50,11 @@
                                            {{ $category->description }}
                                         </td>
                                         <td>
-                                          <img src="{{ $category->url }}" style="height: 100px;width: 50px">
+                                            @if(!$category->use_url)
+                                                <img src="{{ url("$category->path") }}" alt="{{ $category->name  }}"  style="height: 100px;width: 50px">
+                                            @else
+                                                <img src="{{ $category->url }}"  alt="{{ $category->name  }} "  style="height: 100px;width: 50px">
+                                            @endif
                                         </td>
                                         <td>
                                             {{ $category->min_price }}
@@ -59,7 +63,7 @@
                                             {{ $category->level }}
                                         </td>
                                         <td>
-                                            @if(empty($category->disabled))
+                                            @if(!$category->disabled)
                                                  <span class="status-icon bg-success"></span> Enable
                                                 @else
                                                 <span class="status-icon bg-danger"></span> Disable
@@ -67,16 +71,16 @@
                                         </td>
 
                                         <td class="text-right">
-                                            <a href="javascript:void(0)" class="btn btn-secondary btn-sm">Manage</a>
-                                            <div class="dropdown">
-                                                <button class="btn btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown">Actions</button>
-                                            </div>
+                                            <a class="icon" href="{{ url('admin/category') }}/{{ $category->id }}">
+                                                <i class="fe fe-edit"></i>
+                                            </a>
+
                                         </td>
 
                                         <td>
-                                            <a class="icon" href="javascript:void(0)">
-                                                <i class="fe fe-edit"></i>
-                                            </a>
+                                            @if(!$category->disabled)
+                                                <a href="" class="icon"> <i class="fe fe-delete"></i></a>
+                                            @endif
                                         </td>
 
                                     </tr>
@@ -116,5 +120,37 @@
 @endsection
 
 @section('js')
+
+    <script>
+
+        $( document ).ready(function() {
+            var imageSelector = $('#imageSelector');
+
+            var pathField = $('#pathTr');
+            var urlField = $('#urlTr');
+
+            var selected = imageSelector.val();
+
+            feildActivator(parseInt(selected));
+
+            imageSelector.change(function () {
+                selected = imageSelector.val();
+                feildActivator(parseInt(selected));
+            });
+
+
+            function feildActivator(valu)
+            {
+                if(valu==0){
+                    pathField.hide();
+                    urlField.show('slow');
+                }else{
+                    pathField.show('slow');
+                    urlField.hide();
+                }
+            }
+
+        });
+    </script>
 
 @endsection
