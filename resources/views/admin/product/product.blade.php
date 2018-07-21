@@ -9,7 +9,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Category</h3>
+                            <h3 class="card-title">Products</h3>
                         </div>
 
                         <div style="margin-top: 10px; margin-bottom: 10px" class="col-sm-1">
@@ -17,8 +17,8 @@
                             <button id="minuseBtn" type="button" class="btn btn-sm btn-outline-danger"><i class="fe fe-minus mr-2"></i>Close</button>
                         </div>
 
-                        {!! Form::open(['method' => 'POST', 'action'=>'System\CategoryController@store','id'=>'crudForm']) !!}
-                              @include('admin.category._partials.form')
+                        {!! Form::open(['method' => 'POST', 'action'=>'System\ProductController@store','id'=>'crudForm']) !!}
+                        @include('admin.product._partials.form')
                         {!! Form::close() !!}
 
                         <div class="table-responsive">
@@ -40,28 +40,18 @@
                                 <tbody>
 
 
-                                @foreach($Categories as $category)
+                                @foreach($Products as $product)
 
                                     <tr>
-                                        <td><span class="text-muted">{{ $category->id }}</span></td>
+                                        <td><span class="text-muted">{{ $product->id }}</span></td>
                                         <td>{{ $category->code }}</td>
-                                        <td><a href="#" class="text-inherit">{{ $category->name }}</a></td>
+                                        <td><a href="#" class="text-inherit">{{ $product->name }}</a></td>
+
+
                                         <td>
-                                           {{ $category->description }}
-                                        </td>
-                                        <td>
-                                          <img src="{{ $category->url }}" style="height: 100px;width: 50px">
-                                        </td>
-                                        <td>
-                                            {{ $category->min_price }}
-                                        </td>
-                                        <td>
-                                            {{ $category->level }}
-                                        </td>
-                                        <td>
-                                            @if(empty($category->disabled))
-                                                 <span class="status-icon bg-success"></span> Enable
-                                                @else
+                                            @if(empty($product->disabled))
+                                                <span class="status-icon bg-success"></span> Enable
+                                            @else
                                                 <span class="status-icon bg-danger"></span> Disable
                                             @endif
                                         </td>
@@ -102,7 +92,7 @@
                             }
                         </style>
                         <div class="pagination-holder">
-                            {{ $Categories->links() }}
+                            {{ $Products->links() }}
                         </div>
                     </div>
                 </div>

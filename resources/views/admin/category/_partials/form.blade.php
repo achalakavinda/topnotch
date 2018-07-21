@@ -49,3 +49,27 @@
     <div class="card-footer text-right">
         <button type="submit" class="btn btn-primary">Save</button>
     </div>
+
+@section('crud-js')
+
+    <script>
+        $( document ).ready(function() {
+            $('#minuseBtn').hide();
+            $('#crudForm').hide();
+
+            $('#createBtn').click(function () {
+                $('#crudForm').toggle("slow",function () {
+                    $('#createBtn').hide();
+                    $('#minuseBtn').show();
+                    $('#minuseBtn').click(function () {
+                        $('#crudForm').hide('slow');
+                        $('#createBtn').show();
+                        $('#minuseBtn').hide();
+                    });
+                });
+            });
+
+        });
+    </script>
+
+@endsection

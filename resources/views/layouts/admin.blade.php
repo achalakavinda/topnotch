@@ -64,5 +64,6 @@
         </div>
 
     @yield('js')
+    @yield('crud-js')
     </body>
 </html>
