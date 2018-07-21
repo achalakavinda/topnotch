@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\System;
 
+use App\Models\Brand;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Redirect;
 
 class BrandController extends Controller
 {
@@ -14,7 +16,9 @@ class BrandController extends Controller
      */
     public function index()
     {
-        //
+        $Brands = Brand::paginate(10);
+
+        return view('admin.brand.brand',compact(['Brands']));
     }
 
     /**
@@ -24,7 +28,7 @@ class BrandController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.404');
     }
 
     /**
@@ -35,7 +39,17 @@ class BrandController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'name'=>'required'
+        ]);
+
+        Brand::create([
+            'name'=>$request->name,
+            'description'=>$request->desc
+        ]);
+
+        return Redirect()->back();
+
     }
 
     /**
@@ -57,7 +71,7 @@ class BrandController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('admin.404');
     }
 
     /**

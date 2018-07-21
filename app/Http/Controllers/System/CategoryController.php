@@ -27,7 +27,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.404');
     }
 
     /**
@@ -102,7 +102,7 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('admin.404');
     }
 
     /**
