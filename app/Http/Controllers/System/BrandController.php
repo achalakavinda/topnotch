@@ -60,7 +60,7 @@ class BrandController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('admin.brand.show',compact(['id']));
     }
 
     /**
@@ -83,7 +83,41 @@ class BrandController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $this->validate($request,[
+            'name'=>'required'
+        ]);
+
+        if(empty($request->disabled)){
+            $request['disabled'] = 0;
+        }else{
+            $request['disabled'] = 1;
+        }
+
+
+
+        $brand = Brand::findOrFail($id);
+
+
+        // if model instance is empty
+        if ($brand == null)
+        {
+//            flash()->error("brand not found. Please try again");
+        }
+        else
+        {
+            // if update was successful
+            if($brand->update($request->all()))
+            {
+//                flash()->success("brand updated successfully");
+            }
+            else
+            {
+//                flash()->error("brand update failed. Please try again");
+            }
+        }
+        // return the user to the view page.
+        return redirect()->back();
     }
 
     /**

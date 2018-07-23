@@ -30,7 +30,6 @@
                                     <th>Desc</th>
                                     <th>Disabled</th>
                                     <th></th>
-                                    <th></th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -57,12 +56,6 @@
                                                 <i class="fe fe-edit"></i>
                                             </a>
 
-                                        </td>
-
-                                        <td>
-                                            @if(!$brand->disabled)
-                                                <a href="" class="icon"> <i class="fe fe-delete"></i></a>
-                                            @endif
                                         </td>
 
                                     </tr>
